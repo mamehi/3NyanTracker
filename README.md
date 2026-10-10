@@ -45,6 +45,7 @@
 - [Bill of Materials](#-bill-of-materials-draft)
 - [Open Questions](#-open-questions)
 - [Contributing](#-contributing)
+- [Ownership & Provenance](#-ownership--provenance)
 - [License](#-license)
 - [Changelog](#-changelog)
 - [Project Info](#-project-info)
@@ -59,7 +60,7 @@ The proposed first revision uses **exactly one IR-sensitive image sensor and one
 
 > **🔧 Hardware only.** This repository covers the camera/illumination hardware and its physical/electrical interface to the Steam Frame. It does not include, require, or endorse any tracking algorithm, calibration tool, client, or other software project. Producing and consuming raw camera frames on SteamOS is a separate integration problem and is **not yet demonstrated** by this design.
 
-This project was first published on **2026-09-18**. Valve has since published its expansion-port reference material; the hardware direction below reflects that documentation. The project is **still pre-schematic/pre-PCB**, not a working or certified accessory.
+The earliest recorded project commit is dated **2026-09-18**; [PROVENANCE.md](./PROVENANCE.md) documents the evidence and the limits of verifying historical public availability. Valve has since published its expansion-port reference material; the hardware direction below reflects that documentation. The project is **still pre-schematic/pre-PCB**, not a working or certified accessory.
 
 ## 📦 Scope
 
@@ -271,6 +272,14 @@ The **under-$10 goal** is aspirational at volume, not a promise. A ready-made ca
 
 Issues and PRs welcome — **hardware-related only**: electrical design, connector tolerances, sensor/LED sourcing, optics, PCB layout, mechanical design, testing, and manufacturing documentation. Please distinguish measured/verified data from proposals and price targets. Camera driver and tracking-client implementations belong to separate projects.
 
+## 📜 Ownership & Provenance
+
+Original materials independently developed by **Samsacknyan** remain under the [3NyanTracker Hardware Distribution License 1.0](./LICENSE). Its existing terms restrict unauthorized commercial copying and manufacture of covered design materials and govern modification, redistribution, physical attribution, Corresponding Source, and derivative hardware designs.
+
+Licensing follows file origin: independent project materials use the custom license, while Valve-authored or Valve-derived hardware-reference materials retain **CC BY-NC-SA 4.0** and their upstream notices, without additional custom-license restrictions. This is licensing by origin, not a choice of two licenses for the same file. Genuine independent works retain their license when distributed alongside separately licensed materials; directory separation alone does not make an adaptation independent. See [LICENSES.md](./LICENSES.md).
+
+[PROVENANCE.md](./PROVENANCE.md) records the creator, earliest commit, initial-day custom license, and verified development milestones. These records document development history; copyright protects qualifying original expression rather than granting exclusive ownership of abstract ideas. This unofficial project does not claim Valve affiliation or endorsement.
+
 ## ⚖️ License
 
 <div align="center">
@@ -308,7 +317,7 @@ Just building one for yourself and never handing it to anyone else? None of the 
 | | |
 |---|---|
 | **License** | 3NyanTracker Hardware Distribution License 1.0 — see [LICENSE](./LICENSE) |
-| **First published** | 2026-09-18 |
+| **First recorded commit** | 2026-09-18 — see [PROVENANCE.md](./PROVENANCE.md) |
 | **Maintainer** | Samsacknyan · `rumored-prosy-9j@icloud.com` |
 
 ---
