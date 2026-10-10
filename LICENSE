@@ -1,13 +1,17 @@
               3NyanTracker Hardware Distribution License 1.0
                       Version 1.0, September 2026
 
-This license is derived from and incorporates the Apache License,
-Version 2.0 (Sections 1-9 below, reproduced with only the license
-name changed), with an additional, project-specific Section 10
-appended to address hardware-specific terms: non-commercial use,
-reverse-engineering permission, GPLv3-style mandatory source
-availability, and physical attribution requirements. Section 10
-governs wherever it conflicts with Sections 1-9.
+This is a custom hardware distribution license inspired by the
+Apache License, Version 2.0. Sections 1-9 have been substantially
+modified, and Section 10 adds project-specific hardware conditions,
+including non-commercial use, express reverse-engineering permission,
+source-availability obligations for conveyed physical units, and
+physical attribution. It is not the standard Apache License 2.0.
+
+Section 10 governs wherever it conflicts with Sections 1-9.
+Nothing in this license grants rights to third-party materials,
+including Valve's Steam Frame Hardware Reference, which remain
+subject to their respective upstream licenses.
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 

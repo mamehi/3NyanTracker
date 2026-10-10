@@ -36,6 +36,7 @@
 - [Scope](#-scope)
 - [Steam Frame Reference](#-steam-frame-reference)
 - [Expansion Port](#-expansion-port)
+- [Hardware Safety & Warranty](#-hardware-safety--warranty)
 - [Design Goals](#-design-goals)
 - [Hardware Overview](#-hardware-overview)
 - [Electrical Interface](#-electrical-interface)
@@ -112,6 +113,18 @@ The **official front/nose-bridge expansion-port electrical and mechanical specif
 4. Fit **2.2 kΩ pull-up resistors from both CCI lines to 1.8 V** on the accessory. Do not pull these pins up to 3.1 V or 3.3 V.
 
 > **⚠️ Important:** Shorting `R_STROBE` (pin 38) and `CAM_RESET` (pin 42) is described by Valve for **power-only or PCIe-only** accessories. It is **not the intended identification scheme for a custom MIPI camera**. An EEPROM/proper configuration and host-side support are separate requirements.
+
+## ⚠️ Hardware Safety & Warranty
+
+This project is unofficial and **not certified as "Steam Frame Compatible."**
+
+Valve's [Steam Frame Hardware Reference](https://gitlab.steamos.cloud/SteamHardware/SteamFrame) warns that uncertified interfaces may damage hardware. The reference documents are provided AS IS and hardware designs may change.
+
+**No prototype has been validated for electrical safety or compatibility.**
+
+Verify pin orientation, voltage, current limiting, ESD, MIPI routing, and IR eye-exposure safety before connecting hardware.
+
+Warranty consequences depend on the circumstances and applicable law.
 
 ## 🎯 Design Goals
 
@@ -263,7 +276,7 @@ Issues and PRs welcome — **hardware-related only**: electrical design, connect
 <div align="center">
 
 **3NyanTracker Hardware Distribution License 1.0**
-*(Apache 2.0 base + custom Section 10)* — [full text](./LICENSE)
+*(Custom source-available license inspired by Apache 2.0; not Apache-2.0)* — [full text](./LICENSE)
 
 </div>
 
@@ -272,16 +285,18 @@ Issues and PRs welcome — **hardware-related only**: electrical design, connect
 | ✅ Personal use, modification, reverse engineering | Always allowed, explicitly stated |
 | ❌ Commercial manufacture or sale | Not without maintainer's written permission |
 | 📌 Physical attribution | Must be kept on any built/conveyed unit (e.g. QR code to this repo, silkscreened on the PCB) |
-| 🔁 Source availability (GPLv3-style) | If you **convey** any built unit to anyone — even one, even free — you must make the Corresponding Source for it publicly available under this same license, and that obligation carries through every downstream derivative |
+| 🔁 Source availability (copyleft-style) | When conveying a physical unit, provide its Corresponding Source to the recipient under this license, with the unit or through a durable public link maintained as required by Section 10(d)(2). This also applies to downstream derivatives. |
 | 🔒 No further restrictions | You can't bolt on extra terms of your own on top of this license |
 
 Just building one for yourself and never handing it to anyone else? None of the source-availability or attribution terms are triggered — only *conveying* a unit to a third party does that.
 
-**Upstream-material notice:** Valve's published reference CAD/drawings have their **own CC BY-NC-SA 4.0 / noncommercial conditions**. This repository links to Valve material but does not include Valve CAD, PCB design files, or schematics. Any future reuse or adaptation of Valve-licensed material must comply with its original terms and may require separate licensing and attribution; this project's custom license does not override Valve's rights.
+**Upstream-material notice:** Valve reference CAD and drawings have their own **CC BY-NC-SA 4.0** terms. This repository currently links to but does not redistribute Valve CAD, PCB designs, or schematics. Future adaptations must retain applicable upstream licensing, attribution, and change notices. The 3NyanTracker license does not override Valve's terms. Commercial reuse of Valve-licensed material requires Valve authorization.
 
 *Because this license restricts commercial use, it is a custom **source-available** license rather than an OSI/OSHWA-standard open-source/open-hardware license.*
 
 ## 📅 Changelog
+
+- **2026-10-10** — Clarified custom licensing, source delivery, Valve licensing, and prototype safety. Hardware design unchanged.
 
 - **2026-10-10** — Updated the concept after Valve's official front-port hardware publication; added an OV7251 + single 940 nm IR LED baseline, port electrical/mechanical constraints, an EEPROM detection plan, BOM targets, and explicit host-integration risks. **No functional hardware claimed.**
 - **2026-09-18** — Initial commit. Concept, goals, roadmap. Hardware-only scope; no software integration implied.
