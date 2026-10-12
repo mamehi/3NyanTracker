@@ -3,7 +3,7 @@
 
 # 🐱 3NyanTracker
 
-### Ultra-Low-Cost MIPI-Direct Mouth Tracker for Steam Frame
+### Ultra-Low-Cost MIPI-Direct Face Tracker for Steam Frame
 
 *A concept-stage, hardware-only, source-available Steam Frame accessory design*
 
@@ -21,7 +21,7 @@
 
 | | |
 |---|---|
-| **What** | A single-camera mouth/lower-face module connected directly to the Steam Frame front expansion port via MIPI CSI-2 |
+| **What** | A single-camera face/lower-face module connected directly to the Steam Frame front expansion port via MIPI CSI-2 |
 | **Proposed hardware** | **1 × OV7251** monochrome global-shutter camera + **1 × 940 nm IR LED** + the minimum circuitry needed to run them |
 | **What it eliminates** | USB bridge, ESP32/other MCU, wireless link, on-device video processing, and battery |
 | **What it's not** | Tracking software, eye tracking, or an affiliate of any software/tracking project |
@@ -54,7 +54,7 @@
 
 ## 📝 Summary
 
-**3NyanTracker** is a low-cost, hardware-only design for a mouth/lower-face camera module connecting directly to the Valve Steam Frame's front expansion port over **MIPI CSI-2**.
+**3NyanTracker** is a low-cost, hardware-only design for a face/lower-face camera module connecting directly to the Valve Steam Frame's front expansion port over **MIPI CSI-2**.
 
 The proposed first revision uses **exactly one IR-sensitive image sensor and one IR LED**. Video is delivered to the headset over MIPI; the design has **no USB bridge, external compute board, MCU, wireless video link, or dedicated battery**. The headset is expected to provide the host-side image capture and processing resources, **subject to driver and firmware support**.
 
@@ -65,8 +65,8 @@ The earliest recorded project commit is dated **2026-09-18**; [PROVENANCE.md](./
 ## 📦 Scope
 
 **✅ In scope**
-- One mouth-facing MIPI CSI-2 camera and its optics
-- One mouth-facing 940 nm IR LED with appropriate current limiting
+- One face-facing MIPI CSI-2 camera and its optics
+- One face-facing 940 nm IR LED with appropriate current limiting
 - Power conversion, I²C identification EEPROM, and required passives
 - Custom 44-contact expansion-port paddle/interface PCB and flexible interconnect
 - Lightweight mounting and raw-image-capable electrical design
@@ -78,7 +78,7 @@ The earliest recorded project commit is dated **2026-09-18**; [PROVENANCE.md](./
 - Eye tracking or any modification to the Frame's built-in eye cameras
 - Circumventing accessory checks, authentication, or platform security
 
-> **👁️ The Steam Frame's built-in eye-tracking cameras are not part of this project.** The module is intended to view the mouth/lower face only and must avoid blocking the headset's existing sensors.
+> **👁️ The Steam Frame's built-in eye-tracking cameras are not part of this project.** The module is intended to view the face/lower face only and must avoid blocking the headset's existing sensors.
 
 ## 🥽 Steam Frame Reference
 
@@ -132,7 +132,7 @@ Warranty consequences depend on the circumstances and applicable law.
 - **MIPI CSI-2 directly into the Steam Frame**; no USB conversion
 - **Exactly one camera + one IR LED** in the baseline design
 - Monochrome/global-shutter/IR-sensitive image capture preferred
-- **940 nm** mouth illumination; minimize stray light toward the eyes
+- **940 nm** face illumination; minimize stray light toward the eyes
 - **640 × 480 at 60 fps** as an initial *target*, not a verified Frame capability
 - Short, controlled-impedance MIPI routing and a light, flexible mount
 - Very low BOM and power consumption; **<0.3 W active** is a provisional stretch target to be measured, not a confirmed specification
@@ -146,7 +146,7 @@ The **OV7251** is the leading low-cost candidate because it offers a **monochrom
 
 - Planned image stream: **one MIPI data lane + one MIPI clock pair**
 - Planned capture target: **640 × 480 / 60 fps**, subject to validation
-- Lens: **short working distance / close focus** for the mouth region; exact focal length and focus distance TBD
+- Lens: **short working distance / close focus** for the face region; exact focal length and focus distance TBD
 - **Sensor module vs. bare die/package:** compare total cost including lens, alignment, assembly, and availability; do not optimize sensor price alone
 - Linux having an OV7251 driver **does not establish Steam Frame compatibility**. Camera enumeration, CCI setup, CSI routing, platform camera pipeline, and access to frames must be verified separately.
 
@@ -154,7 +154,7 @@ Upstream driver reference: [Linux `ov7251.c`](https://github.com/torvalds/linux/
 
 ### Illumination: exactly one 940 nm IR LED
 
-- Use one **wide-angle 940 nm SMD IR emitter**, facing the mouth, not the eyes
+- Use one **wide-angle 940 nm SMD IR emitter**, facing the face, not the eyes
 - Provide proper LED current limiting and verify safe optical output
 - A single emitter may be insufficient for even illumination; **test before adding another LED**
 - Start with low drive current; prioritize battery life and thermal comfort
@@ -218,7 +218,7 @@ The published mating-edge geometry calls for:
 
 Prefer a **flexible interconnect** between the rigid paddle and the camera mount to avoid loading the headset connector. Prototype mounts can be 3D printed.
 
-Optics should cover the mouth from the actual installed position at a short working distance, without obscuring the built-in cameras or creating irritating pressure points. A 940 nm emitter still requires an **IR eye-exposure / photobiological safety assessment**, especially this close to the face.
+Optics should cover the face from the actual installed position at a short working distance, without obscuring the built-in cameras or creating irritating pressure points. A 940 nm emitter still requires an **IR eye-exposure / photobiological safety assessment**, especially this close to the face.
 
 ## 🗺️ Status & Roadmap
 
@@ -243,7 +243,7 @@ Optics should cover the mouth from the actual installed position at a short work
 | Component | Planning range (USD/unit) | Notes |
 |---|---:|---|
 | OV7251 bare image sensor | $2.60–4.00 | Tentative volume target; stock and qualification unverified |
-| Short-focus lens / sensor holder | $1.00–3.00 | Mandatory for usable mouth images; part TBD |
+| Short-focus lens / sensor holder | $1.00–3.00 | Mandatory for usable face images; part TBD |
 | **One** 940 nm SMD IR LED | $0.03–0.05 | Optical power and current TBD |
 | I²C configuration EEPROM | $0.10–0.30 | 1.8 V-compatible CAT24C32-type device |
 | Regulators + passives + LED current control | $0.50–1.50 | Sensor voltage rails TBD |
